@@ -379,7 +379,7 @@ body {
 .container-text {
   background: linear-gradient(to right, #ff8a00, #001935, #002e63, #004159);
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
