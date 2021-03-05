@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-page {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  min-width: 100%;
+  height: 100vh;
+}
+
+.every-first {
+  margin: 2rem 0.5rem 0 1.5rem;
+}
+
+.first-page {
+  margin: 2.42rem 1rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 0.8rem;
+  color: rgb(38, 45, 61);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.form-side {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-width: 100%;
+  margin-bottom: 0.8rem;
+}
+
+.form-side > div {
+  margin: 10px;
+  flex-basis: 400px;
+}
+
+.container {
+  height: fit-content;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.container .wrapper {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ff8a00;
+  overflow: hidden;
+}
+
+.wrapper.active {
+  border: none;
+}
+
+.wrapper .image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+}
+
+.wrapper .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.wrapper .icon {
+  font-size: 100px;
+  color: #9658fe;
+}
+
+.wrapper .text {
+  font-size: 0.8rem;
+  color: #5b5b7b;
+  font-weight: 500;
+}
+
+.wrapper #cancel-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #ff8a00;
+  display: none;
+}
+
+.wrapper.active:hover #cancel-btn {
+  display: block;
+}
+
+.wrapper #cancel-btn:hover {
+  color: #e74c3c;
+}
+
+.wrapper .file-name {
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(135deg, #001935 0%, #ff8a00 100%);
+  color: #fff;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  display: none;
+}
+
+.wrapper.active:hover .file-name {
+  display: block;
+}
+
+.container #custom-btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  display: block;
+  border: none;
+  background: linear-gradient(135deg, #001935 0%, #ff8a00 100%);
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+
+.container #custom-btn:hover {
+  background: linear-gradient(to right, #ff8a00, #001935);
+}
+
+.image-side {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-image: url(images/change.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.file-upload {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.file-upload__input {
+  display: none;
+}
+
+.file-upload__button {
+  -webkit-appearance: none;
+  background: #009879;
+  border: 2px solid #00745d;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5em 0.8em;
+  margin-right: 1px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.file-upload__button:active {
+  background: #00745d;
+}
+
+.file-upload__label {
+  max-width: 250px;
+  font-size: 0.95em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.submit {
+  display: flex;
+  text-align: center;
+  margin: 0.8rem auto;
+  justify-content: center;
+}
+
+#submit-button {
+  -webkit-appearance: none;
+  background-image: linear-gradient(to right, #001935, #ff8a00);
+  background-color: #001935;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5em 0.8em;
+  margin-right: 1px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+#submit-button:hover {
+  background: linear-gradient(to right, #ff8a00, #001935);
+}
+
+.thanks {
+  background-color: #edf1fd;
+  box-sizing: border-box;
+  margin-bottom: 0.8rem;
+}
+
+.thank-text {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.1rem 1rem;
+}
+
+.note {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(38, 45, 61);
+  margin-bottom: 0.6rem;
+}
+
+.conditions {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(38, 45, 61);
+}
+
+.conditions ul {
+  list-style-type: square;
+}
+
+.conditions ul li {
+  padding: 0.3rem 0;
+}
+
+.see {
+  margin: 0.5rem 0;
+  color: rgb(248, 248, 250);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.fa-play-circle {
+  color: #ff8a00;
+  text-shadow: 2px 2px 4px #000000;
+  height: fit-content;
+  width: fit-content;
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.how-page {
+  background-image: url(images/flat-thinking-concept-dark-background_52683-9294.jpg);
+  background-size: cover;
+  background-position: center;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.icon-video {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.web-text input {
+  margin: 0.5rem 3rem;
+  width: 70%;
+  padding: 0.3rem 0.1rem;
+  line-height: 0.8;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid #e1e4e8;
+  color: #586069 !important;
+  background-color: #fafbfc !important;
+  border-radius: 5px !important;
+  box-sizing: border-box;
+  transition: width 0.35s ease-in-out;
+}
+
+.web-text input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+@media (max-width: 1140px) {
+  .main-page {
+    grid-template-columns: 1fr;
+  }
+
+  .first-page {
+    margin: 0.3rem 1rem 0 1rem;
+  }
+
+  .how-page {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .icon-video {
+    position: relative;
+    transform: none;
+    left: auto;
+    top: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-side {
+    flex-direction: column;
+  }
+
+  .form-side > div {
+    flex-basis: auto;
+  }
+}

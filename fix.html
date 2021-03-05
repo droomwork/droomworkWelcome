@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick fix</title>
+    <link rel="stylesheet" href="public/css/fix.css" type="text/css">
+    <script src="public/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/vendor/fontawesome-free-5.13.0-web/css/all.css">
+</head>
+<body>
+    <div class="main-page">
+        <div class="first-page">
+            
+
+                <div class="page-title">
+                    Drop A Link to Your website/App
+                </div>
+
+                <div class="web-link">
+                    <div class="web-text">
+                        <input type="text" name="" id="" placeholder="Website Link">
+                    </div>
+                </div>
+
+                <div class="form-side">
+
+                    <div class="image-side">
+                        <div class="file-uplod">
+                            <input type="file" class="file-upload__input" name="myFile[]" id="myFile" multiple>
+                            <button class="file-upload__button" type="button">Choose File(s)</button>
+                            <span class="file-upload__label">No file(s) selected</span>
+                        </div>
+                    </div>
+
+                    <div class="second-submit">
+                        <button id="submit-button">Send Fix</button>
+                    </div>
+                </div>
+
+                <div class="thanks">
+                    <div class="thank-text">
+                        <p>Kindly upload an image description of what you will have us do for</p>
+                    </div>
+                </div>
+                
+                <p class="note">
+                    Before Uploading files and images kindly ensure:
+                </p>
+
+                <div class="conditions">
+                    <ul>
+                        <li>The images in the files are clear enough</li>
+                        <li>The file should contain well documented details of changes you want to effect on your app or site</li>
+                        <li>A time of delivery should be stipulated in the document.</li>
+                        <li>A well detailed document of all you want us to do for you will go a long way to help 
+                            us deliver excellently.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="how-page">
+            <div class="see">
+                See how we help out organizations
+            </div>
+
+            <div class="icon-video">
+                <i class="far fa-play-circle"></i>
+            </div>
+        </div>
+    </div>
+<script>
+    Array.prototype.forEach.call(document.querySelectorAll(".file-upload__button"), function (button) {
+            const hiddenInput = button.parentElement.querySelector(".file-upload__input");
+            const label = button.parentElement.querySelector(".file-upload__label");
+            const defaultLabelText = "No file(s) selected";
+
+            label.textContent = defaultLabelText;
+            label.title = defaultLabelText;
+
+            button.addEventListener("click", function(){
+                hiddenInput.click();
+            });
+
+            hiddenInput.addEventListener("change", function() {
+                const filenameList = Array.prototype.map.call(hiddenInput.files, function(file) {
+                    return file.name;
+                });
+
+                label.textContent = filenameList.join(", ") || defaultLabelText;
+                label.title = label.textContent
+            });
+        }
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record</title>
+    <link rel="stylesheet" href="details.css" type="text/css">
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-5.13.0-web/css/all.css">
+</head>
+<body>
+    <div class="main-page">
+        <div class="first-page">
+            <div class="every-first">
+
+                <div class="page-title">
+                    Build from Scratch
+                </div>
+
+                <div class="form-side">
+                    <div class="image-sidea">
+                        <div class="container">
+                            <div class="wrapper">
+                                <div class="image">
+                                   <img src="" alt="">
+                                </div>
+                                <div class="content">
+                                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                    <div class="text">No file choosen, yet!</div>
+                                </div>
+                                <div id="cancel-btn"><i class="fas fa-times"></i></div>
+                                <div class="file-name">File name here</div>
+                            </div>
+                            <input id="default-btn" type="file" hidden>
+                            <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+                        </div>
+                    </div>
+
+                    <div class="image-side">
+                        <div class="file-uplod">
+                            <input type="file" class="file-upload__input" name="myFile[]" id="myFile" multiple>
+                            <button class="file-upload__button" type="button">Choose File(s)</button>
+                            <span class="file-upload__label">No file(s) selected</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="submit">
+                    <button id="submit-button">Submit Request</button>
+                </div>
+
+                <div class="thanks">
+                    <div class="thank-text">
+                        <p>Kindly upload an image description of what you will have us do for</p>
+                    </div>
+                </div>
+                
+                <p class="note">
+                    Before Uploading files and images kindly ensure:
+                </p>
+
+                <div class="conditions">
+                    <ul>
+                        <li>The image is clear enough</li>
+                        <li>The file contains all necessary information about the project</li>
+                        <li>Text document must be well documented</li>
+                        <li>A well detailed document of all you want us to do for you will go a long way to help 
+                            us deliver excellently.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="second-page">
+            <div class="icon-video">
+                <i class="far fa-play-circle"></i>
+            </div>
+        </div>
+    </div>
+<script>
+    const wrapper = document.querySelector(".wrapper");
+    const cancelBtn = document.querySelector("#cancel-btn");
+    const filename = document.querySelector(".file-name");
+    const defaultBtn = document.querySelector("#default-btn");
+    const customBtn = document.querySelector("#custom-btn");
+    const img = document.querySelector("img");
+    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+
+    function defaultBtnActive(){
+        defaultBtn.click();
+    }
+
+    defaultBtn.addEventListener("change", function(){
+        const file = this.files[0];
+        if(file){
+            const reader = new FileReader();
+            reader.onload = function(){
+                const result = reader.result;
+                img.src = result;
+                wrapper.classList.add("active");
+            }
+            cancelBtn.addEventListener("click", function(){
+                img.src = "";
+                wrapper.classList.remove("active");
+            });
+            reader.readAsDataURL(file);
+        }
+        if(this.value){
+            let valueStore = this.value.match(regExp);
+            filename.textContent = valueStore
+        }
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".file-upload__button"), function (button) {
+            const hiddenInput = button.parentElement.querySelector(".file-upload__input");
+            const label = button.parentElement.querySelector(".file-upload__label");
+            const defaultLabelText = "No file(s) selected";
+
+            label.textContent = defaultLabelText;
+            label.title = defaultLabelText;
+
+            button.addEventListener("click", function(){
+                hiddenInput.click();
+            });
+
+            hiddenInput.addEventListener("change", function() {
+                const filenameList = Array.prototype.map.call(hiddenInput.files, function(file) {
+                    return file.name;
+                });
+
+                label.textContent = filenameList.join(", ") || defaultLabelText;
+                label.title = label.textContent
+            });
+        }
+    );
+</script>
+</body>
+</html>
